@@ -1,11 +1,10 @@
 import '@tarojs/async-await'
-import action from './utils/action'
+import {Provider} from '@tarojs/redux'
 import Taro, {Component} from '@tarojs/taro'
+import action from './utils/action'
 import Index from './pages/index'
 import dva from './dva'
 import models from './model'
-import {Provider} from '@tarojs/redux'
-
 
 import './app.scss'
 
@@ -24,15 +23,16 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/discovery/discovery',
-      'pages/more/more',
+      'pages/session/session',
+      'pages/collect/collect',
       'pages/answer/answer',
-      'pages/question/question'
+      'pages/question/question',
+      'pages/about/about'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#0068C4',
-      navigationBarTitleText: 'taro知乎',
+      navigationBarTitleText: 'taro头条',
       navigationBarTextStyle: 'white',
       enablePullDownRefresh: true
     },
@@ -47,13 +47,19 @@ class App extends Component {
         iconPath: "./asset/images/index.png",
         selectedIconPath: "./asset/images/index_focus.png"
       }, {
-        pagePath: "pages/discovery/discovery",
-        text: "发现",
+        pagePath: "pages/session/session",
+        text: "段子",
         iconPath: "./asset/images/discovery.png",
         selectedIconPath: "./asset/images/discovery_focus.png"
       },
         {
-          pagePath: "pages/more/more",
+          pagePath: "pages/collect/collect",
+          text: "收藏",
+          iconPath: "./asset/images/burger.png",
+          selectedIconPath: "./asset/images/burger_focus.png"
+        },
+        {
+          pagePath: "pages/about/about",
           text: "我的",
           iconPath: "./asset/images/burger.png",
           selectedIconPath: "./asset/images/burger_focus.png"
@@ -75,10 +81,11 @@ class App extends Component {
   }
 
   render() {
-    return (<Provider store={store}>
-      <Index/>
-    </Provider>);
+    return (
+      <Provider store={store}>
+        <Index />
+      </Provider>);
   }
 }
 
-Taro.render(<App/>, document.getElementById('app'))
+Taro.render(<App />, document.getElementById('app'))
