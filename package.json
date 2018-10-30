@@ -53,5 +53,11 @@
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-react": "^7.8.2",
     "eslint-plugin-taro": "^1.0.0-beta.25"
+  },
+  "proxy": {
+    "/GetTou": {
+      "target": "https://m.toutiao.com",
+      "changeOrigin": true
+    }
   }
 }

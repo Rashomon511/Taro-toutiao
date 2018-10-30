@@ -6,7 +6,7 @@ let store;
 let dispatch;
 
 function createApp(opt) {
-  opt.onAction = [createLogger()];
+  // opt.onAction = [createLogger()];
   app = create(opt);
   app.use(createLoading({}));
 

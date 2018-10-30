@@ -25,7 +25,7 @@ export default class Index extends Component {
   }
 
   componentDidMount = () => {
-    this.props.dispatch(action("feeds/load"));
+    this.props.dispatch(action("feeds/load", '__all__'));
   };
 
   onPullDownRefresh = () => {
