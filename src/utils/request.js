@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 export default function request(opt) {
   return Taro.request({
     ...opt,
-    
+
     header: {
       'Content-Type': 'application/json',
     },}).then((res) => {
