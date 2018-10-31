@@ -1,4 +1,5 @@
 import Taro from '@tarojs/taro'
+import jsonp from 'jsonp'
 import action from "../utils/action";
 import request from "../utils/request";
 import delay from "../utils/delay";
@@ -27,10 +28,11 @@ export default {
       }
     },
     * load({payload}, {all, call, put}) {
-      console.log(payload)
+      // console.log(payload)
       let {data} = yield call(request, {
-        url: '/list/?tag=' + payload + '&ac=wap&count=20&format=json_raw&as=A125A8CEDCF8987&cp=58EC18F948F79E1&min_behot_time=' + parseInt(new Date().getTime() / 1000)
+        url: 'https://m.toutiao.com/list/?tag=' + payload + '&ac=wap&count=20&format=json_raw&as=A125A8CEDCF8987&cp=58EC18F948F79E1&min_behot_time=' + parseInt(new Date().getTime() / 1000)
       });
+      console.log(data);
       yield call(delay, 2000);//增加延迟测试效果
       yield put(action("save", {list: data}))
     },
