@@ -46,7 +46,7 @@ export default class Index extends Component {
       <View>
         <View className='search flex-wrp'>
           <View className='search-left'>
-            今日头条
+            今日头条    
           </View>
           <View className='search-right flex-item'>
             <Input type='text' placeholder='搜索...' placeholderClass='search-placeholder' />
