@@ -45,17 +45,16 @@ export default class Index extends Component {
     return (
       <View>
         <View className='search flex-wrp'>
-          sss
-          {/*<View className='search-left flex-item'>*/}
+          <View className='search-left'>
+            今日头条
+          </View>
+          <View className='search-right flex-item'>
+            <Input type='text' placeholder='搜索...' placeholderClass='search-placeholder' />
             {/*<View className='flex-wrp'>*/}
               {/*<View className='flex1'><Image src={searchPng}></Image></View>*/}
-              {/*<View className='flex6'><Input type='text' placeholder={'搜索话题, 问题或人'}*/}
-                                             {/*placeholderClass='search-placeholder'/></View>*/}
+              {/*<View className='flex6'><Input type='text' placeholder='搜索...' placeholderClass='search-placeholder'/></View>*/}
             {/*</View>*/}
-          {/*</View>*/}
-          {/*<View className='search-right flex-item'>*/}
-            {/*<Image onClick={this.updateList} src={lightingPng}></Image>*/}
-          {/*</View>*/}
+          </View>
         </View>
         <View className='container'>
           22
