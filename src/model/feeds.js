@@ -5,7 +5,9 @@ import delay from "../utils/delay";
 
 export default {
   namespace: 'feeds',
-  state: {list: []},
+  state: {
+    list: [],
+  },
   reducers: {
     save(state, {payload}) {
       return {...state, ...payload};
@@ -15,6 +17,23 @@ export default {
     },
   },
   effects: {
+    // 获取新闻
+    * getNews({payload}, {call, put}) {
+      let {data} = yield call(request, {
+        url: 'https://m.toutiao.com/list/?tag=' + payload + '&ac=wap&count=20&format=json_raw&as=A125A8CEDCF8987&cp=58EC18F948F79E1&min_behot_time=' + parseInt(new Date().getTime() / 1000),
+        jsonp:true
+      });
+      yield call(delay, 2000);//增加延迟测试效果
+      yield put(action("save", {list: data}))
+    },
+    // 获取文章
+    *getArticle({payload}, {call, put}) {
+      let {data} = yield call(request, {
+        url: 'https://m.toutiao.com/i' + payload.id + '/info/'
+      });
+      yield call(delay, 2000);//增加延迟测试效果
+      yield put(action("saveMore", data))
+    },
     * search(_, {all, call, put}) {
       Taro.showLoading({
         title: '搜索中...',
@@ -25,25 +44,6 @@ export default {
       } finally {
         Taro.hideLoading();
       }
-    },
-    // 获取文章
-    *getArticle({payload}, {all, call, put}) {
-      let {data} = yield call(request, {
-        url: 'https://m.toutiao.com/i' + payload.id + '/info/'
-      });
-      yield call(delay, 2000);//增加延迟测试效果
-      yield put(action("saveMore", data))
-    },
-    // 获取新闻
-    * load({payload}, {all, call, put}) {
-      // console.log(payload)
-      let {data} = yield call(request, {
-        url: 'https://m.toutiao.com/list/?tag=' + payload + '&ac=wap&count=20&format=json_raw&as=A125A8CEDCF8987&cp=58EC18F948F79E1&min_behot_time=' + parseInt(new Date().getTime() / 1000),
-        jsonp:true
-      });
-      console.log(data);
-      yield call(delay, 2000);//增加延迟测试效果
-      yield put(action("save", {list: data}))
     },
     //获取更多新闻
     * getMoreNews({payload}, {all, call, put}) {

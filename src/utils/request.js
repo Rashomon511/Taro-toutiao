@@ -21,13 +21,13 @@ export default (options = { method: 'GET', data: {}, jsonp: false }) => {
       if (!noConsole) {
         console.log(`${new Date().toLocaleString()}【 M=${options.url} 】【接口响应：】`,res.data);
       }
-      if (data.status !== 'ok') {
-        Taro.showToast({
-          title: `${res.data.error.message}~` || res.data.error.code,
-          icon: 'none',
-          mask: true,
-        });
-      }
+      // if (data.status !== 'ok') {
+      //   Taro.showToast({
+      //     title: `${res.data.error.message}~` || res.data.error.code,
+      //     icon: 'none',
+      //     mask: true,
+      //   });
+      // }
       return data;
     } else {
       throw new Error(`网络请求错误，状态码${statusCode}`);
