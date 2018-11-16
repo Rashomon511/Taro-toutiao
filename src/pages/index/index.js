@@ -49,6 +49,9 @@ export default class Index extends Component {
   updateList = () => {
     this.props.dispatch(action("feeds/search",true));
   };
+  getOtherNews = (type) => {
+    this.props.dispatch(action("feeds/getNews", type));
+  }
 
   render() {
     const {list = [], isLoad, isLoadMore} = this.props;
@@ -70,7 +73,7 @@ export default class Index extends Component {
             list.length ?
               <View>
                 <View className='nav-list'>
-                  {nav.map(item => <View>{item.text}</View>)}
+                  {nav.map(item => <View onClick={this.getOtherNews.bind(this,item.type)}>{item.text}</View>)}
                 </View>
                 {
                   list.map(item => {
