@@ -1,12 +1,10 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View,Image,Text } from '@tarojs/components'
-import more from '../../asset/images/more.png'
+import { View,Image } from '@tarojs/components'
 import './feed.scss'
 
 export default class Feed extends Component {
-  navigateTo(url) {
-    console.log(url)
-    // Taro.navigateTo({url:url})
+  navigateTo(id) {
+    Taro.navigateTo({url:`/content/${id}`})
   }
   render() {
     const { title, mediaName, commentCount, datetime, item_id,imgList, hasImg,imgUrl } = this.props;
@@ -18,7 +16,7 @@ export default class Feed extends Component {
             hasImg &&
             <View className='feed-img'>
               {
-                imgList.length === 0 ? <Image src={imgUrl} className='item-more'></Image> : imgList.map(item => <Image src={item.url} className='item-more'></Image>)
+                imgList.length === 0 ? <Image src={imgUrl}></Image> : imgList.map(item => <Image src={item.url}></Image>)
               }
             </View>
           }

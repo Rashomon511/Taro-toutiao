@@ -28,11 +28,10 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
-        .item-more{
-          display: inline-block;
-          width: 40px;
+        & image,img {
+          width: 45px;
           height: 45px;
-          text-align: right;
+          padding: 10px;
         }
       }
     }

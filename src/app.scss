@@ -14,6 +14,19 @@
   &.withtab{
     margin: 105px 0 0 0;
   }
+  .nav-list{
+    height: 80px;
+    line-height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 30px;
+  }
+  .load-more{
+    height: 80px;
+    text-align: center;
+    line-height: 80px;
+  }
 
 }
 .feed-item{
@@ -94,6 +107,16 @@
           border-radius: 45px;
           top: 10px;
           vertical-align: middle;
+        }
+      }
+      .feed-img{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        & image,img {
+          width: 220px;
+          height: 180px;
+          padding: 10px;
         }
       }
     }
