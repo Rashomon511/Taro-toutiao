@@ -21,7 +21,7 @@ const nav =  [
 @connect(({feeds, loading}) => ({
   ...feeds,
   isLoad: loading.effects["feeds/getNews"],
-  isLoadMore: loading.effects["feeds/loadMore"],
+  isLoadMore: loading.effects["feeds/getMoreNews"],
 }))
 export default class Index extends Component {
   config = {
@@ -32,6 +32,9 @@ export default class Index extends Component {
 
   constructor() {
     super(...arguments);
+    this.state = {
+      newsType: '__all__'
+    }
   }
 
   componentDidMount = () => {
@@ -43,7 +46,7 @@ export default class Index extends Component {
   };
 
   onReachBottom = () => {
-    this.props.dispatch(action("feeds/loadMore"));
+    this.props.dispatch(action("feeds/getMoreNews"));
   };
 
   updateList = () => {
@@ -51,6 +54,14 @@ export default class Index extends Component {
   };
   getOtherNews = (type) => {
     this.props.dispatch(action("feeds/getNews", type));
+    this.setState({
+      newsType: type
+    })
+  }
+
+  getMoreNews = () => {
+    const { newsType } = this.state;
+    this.props.dispatch(action("feeds/getMoreNews", newsType));
   }
 
   render() {
@@ -90,14 +101,16 @@ export default class Index extends Component {
                     />
                   })
                 }
-                <View className='load-more'>加载更多。。。</View>
+                <View className='load-more' onClick={this.getMoreNews.bind(this)}>
+                  {
+                    isLoadMore ? <View>加载中...</View> : <View>加载更多。。。</View>
+                  }
+                </View>
               </View>
               :
               isLoad ? <View>加载中...</View> : <View>没有数据</View>
           }
-          {
-            isLoadMore && <View>加载中...</View>
-          }
+
         </View>
       </View>
     )
