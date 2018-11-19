@@ -23,7 +23,6 @@ class App extends Component {
   config = {
     pages: [
       'pages/index/index',
-      'pages/session/session',
       'pages/collect/collect',
       'pages/answer/answer',
       'pages/question/question',
@@ -46,11 +45,6 @@ class App extends Component {
         text: "首页",
         iconPath: "./asset/images/index.png",
         selectedIconPath: "./asset/images/index_focus.png"
-      }, {
-        pagePath: "pages/session/session",
-        text: "段子",
-        iconPath: "./asset/images/discovery.png",
-        selectedIconPath: "./asset/images/discovery_focus.png"
       },
         {
           pagePath: "pages/collect/collect",
