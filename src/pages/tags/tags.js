@@ -36,7 +36,6 @@ export default class Search extends Component {
   }
   render () {
     const {tags, otherTags} = this.props;
-    console.log(tags);
     return (
       <View className='tags-wrap'>
         <View className='tags-head'>
