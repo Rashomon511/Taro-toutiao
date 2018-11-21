@@ -38,5 +38,4 @@ yarn run dev:weapp
 ```
 
 
-欢迎start
-
+欢迎star
