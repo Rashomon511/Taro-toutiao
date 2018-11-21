@@ -2,6 +2,7 @@
 
 本项目整合了taro 和 dvajs
 使用了taro,dva,taro-ui相关技术栈
+本案例基础框架：https://github.com/zuoge85/taro-dva
 动图演示：
 ![](https://github.com/LuoShengMen/Taro-toutiao/blob/master/src/asset/Nov-21-2018%2019-40-25.gif)
 
