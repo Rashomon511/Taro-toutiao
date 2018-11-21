@@ -37,14 +37,6 @@ export default {
       yield call(delay, 200);//增加延迟测试效果
       yield put(action("save", {list: list}))
     },
-    // 获取文章
-    *getArticle({payload}, {call, put}) {
-      let {data} = yield call(request, {
-        url: 'https://m.toutiao.com/i' + payload.id + '/info/'
-      });
-      yield call(delay, 2000);//增加延迟测试效果
-      yield put(action("saveMore", data))
-    },
 
     // 刷新新闻
     *refreshNews({payload}, {all, call, put}) {

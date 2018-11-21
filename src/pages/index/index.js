@@ -33,16 +33,15 @@ export default class Index extends Component {
   };
 
   onPullDownRefresh = () => {
-    this.props.dispatch(action("feeds/getNews"));
+    const { newsType } = this.state;
+    this.props.dispatch(action("feeds/getNews", newsType));
   };
 
   onReachBottom = () => {
-    this.props.dispatch(action("feeds/getMoreNews"));
+    const { newsType } = this.state;
+    this.props.dispatch(action("feeds/getMoreNews", newsType));
   };
 
-  updateList = () => {
-    this.props.dispatch(action("feeds/search",true));
-  };
   getOtherNews = (type) => {
     this.props.dispatch(action("feeds/getNews", type));
     this.setState({

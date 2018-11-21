@@ -4,7 +4,7 @@ import './feed.scss'
 
 export default class Feed extends Component {
   navigateTo(id) {
-    Taro.navigateTo({url:`/content/${id}`})
+    Taro.navigateTo({url:`/pages/article/article?${id}`})
   }
   render() {
     const { title, mediaName, commentCount, datetime, item_id,imgList, hasImg,imgUrl } = this.props;

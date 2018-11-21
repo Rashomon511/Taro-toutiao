@@ -25,7 +25,8 @@ class App extends Component {
       'pages/index/index',
       'pages/collect/collect',
       'pages/search/search',
-      'pages/tags/tags'
+      'pages/tags/tags',
+      'pages/article/article'
     ],
     window: {
       backgroundTextStyle: 'light',
