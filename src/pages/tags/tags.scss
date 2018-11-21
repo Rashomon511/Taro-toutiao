@@ -1,0 +1,41 @@
+.tags-wrap{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  .tags-head{
+    height: 80px;
+    width: 100%;
+    background-color: #d43d3d;
+    padding: 20px;
+  }
+  .tags-title{
+    position: relative;
+    color: white;
+    left: 30%;
+    line-height: 80px;
+  }
+  .tags-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .tags-text{
+    font-size: 12px;
+    color: silver;
+    text-align: center;
+  }
+  .tags-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    .tag-item{
+      font-size: 20px;
+      border:1px silver solid;
+      padding: 10px 30px;
+      margin: 15px;
+    }
+  }
+}
