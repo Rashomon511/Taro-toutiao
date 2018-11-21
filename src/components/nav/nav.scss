@@ -1,0 +1,25 @@
+.nav{
+  height: 80px;
+  line-height: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 30px;
+  background-color: #f4f5f6;
+  .nav-list{
+    overflow: hidden;
+    overflow-x: auto;
+    white-space: nowrap;
+    width: 1000px;
+  }
+  .nav-item{
+    display: inline-block;
+    margin: 0 30px;
+  }
+  .nav-icon{
+    margin: 0 10px;
+  }
+  .item-active{
+    color: red;
+  }
+}

@@ -51,12 +51,6 @@ class App extends Component {
           text: "收藏",
           iconPath: "./asset/images/burger.png",
           selectedIconPath: "./asset/images/burger_focus.png"
-        },
-        {
-          pagePath: "pages/about/about",
-          text: "我的",
-          iconPath: "./asset/images/burger.png",
-          selectedIconPath: "./asset/images/burger_focus.png"
         }]
     }
   }

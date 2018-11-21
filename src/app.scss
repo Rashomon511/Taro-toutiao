@@ -7,20 +7,12 @@
   box-sizing: border-box;
   width:100%;
   background: #F0F4F3;
-  padding: 0;
+  padding-top: 150px;
   font-size: 20px;
   color: #000;
 
   &.withtab{
     margin: 105px 0 0 0;
-  }
-  .nav-list{
-    height: 80px;
-    line-height: 80px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    font-size: 30px;
   }
   .load-more{
     height: 80px;

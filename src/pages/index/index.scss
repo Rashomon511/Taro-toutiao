@@ -1,7 +1,16 @@
+.wrap{
+  display: flex;
+  flex-direction: column;
+  .head{
+    width: 100%;
+    position: fixed;
+    z-index: 1000;
+  }
+}
 .search{
   height: 70px;
   padding: 12.5px 0 12.5px 15px;
-  background: red;
+  background: #d43d3d;
   display: flex;
   justify-content: space-around;
   .search-left{
@@ -10,9 +19,9 @@
   }
   .search-right {
     height: 65px;
-    width: 300px;
-    background: white;
-    text-align: left;
+    //width: 300px;
+    //background: white;
+    //text-align: left;
     display: flex;
     border-radius: 10px;
     image,img {
@@ -20,6 +29,9 @@
       width: 35px;
       height: 35px;
       padding: 15px 15px 15px 20px;
+    }
+    .icon-search{
+      color: white;
     }
     .search-placeholder{
       background: white;
@@ -39,9 +51,4 @@
       font-size: 26px;
     }
   }
-}
-
-.search-placeholder {
-  color: #8CCEFD;
-  line-height: 20px;
 }
