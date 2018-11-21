@@ -1,6 +1,6 @@
 import Taro, {Component} from '@tarojs/taro'
 import {View,Icon} from '@tarojs/components'
-import { AtIcon } from 'taro-ui'
+import { AtModal, AtIcon,AtActivityIndicator } from "taro-ui"
 import {connect} from '@tarojs/redux'
 import './index.scss'
 import Feed from '../../components/feed/feed'
@@ -23,6 +23,7 @@ export default class Index extends Component {
   constructor() {
     super(...arguments);
     this.state = {
+      isOpened: false,
       newsType: '__all__'
     }
   }
@@ -54,18 +55,34 @@ export default class Index extends Component {
     this.props.dispatch(action("feeds/getMoreNews", newsType));
   }
 
+  changeOpen = () => {
+    this.setState({
+      isOpened: true
+    })
+  }
+
+  handleClose = () => {
+    this.setState({
+      isOpened: false
+    })
+  }
+
+  goSearch = () => {
+    Taro.navigateTo({url:`/pages/search/search`})
+  }
+
   render() {
     const {list = [], isLoad, isLoadMore} = this.props;
-    const {newsType} = this.state;
+    const {newsType,isOpened} = this.state;
     return (
       <View className='wrap'>
         <View className='head'>
           <View className='search flex-wrp'>
-            <AtIcon value='mail' size='24' color='#fff'></AtIcon>
+            <AtIcon value='mail' size='24' color='#fff' onClick={this.changeOpen}></AtIcon>
             <View className='search-left'>
               Taro头条
             </View>
-            <View className='search-right'>
+            <View className='search-right' onClick={this.goSearch}>
               <View className='flex-wrp'>
                 <Icon size='20' type='search' className='icon-search flex1' />
               </View>
@@ -76,7 +93,7 @@ export default class Index extends Component {
             onChangeNew={this.getOtherNews}
           />
         </View>
-        <View className='container'>
+        <View className='container index-container'>
           {
             list.length ?
               <View>
@@ -97,14 +114,21 @@ export default class Index extends Component {
                 }
                 <View className='load-more' onClick={this.getMoreNews.bind(this)}>
                   {
-                    isLoadMore ? <View>加载中...</View> : <View>加载更多。。。</View>
+                    isLoadMore ? <AtActivityIndicator content='加载中...' mode='center'></AtActivityIndicator> : <View>加载更多。。。</View>
                   }
                 </View>
               </View>
               :
-              isLoad ? <View>加载中...</View> : <View>没有数据</View>
+              isLoad ? <AtActivityIndicator content='加载中...' mode='center'></AtActivityIndicator> : <View>没有数据</View>
           }
-
+          <AtModal
+            isOpened={isOpened}
+            title='标题'
+            confirmText='确定'
+            onClose={this.handleClose}
+            onConfirm={this.handleClose}
+            content='这个还没做呢！欢迎star该项目'
+          />
         </View>
       </View>
     )

@@ -1,4 +1,7 @@
-
+.wrap {
+  display: flex;
+  flex-direction: column;
+}
 .container {
   min-height: 1200px;
   display: flex;
@@ -7,9 +10,9 @@
   box-sizing: border-box;
   width:100%;
   background: #F0F4F3;
-  padding-top: 150px;
   font-size: 20px;
   color: #000;
+  position: relative;
 
   &.withtab{
     margin: 105px 0 0 0;
@@ -18,8 +21,16 @@
     height: 80px;
     text-align: center;
     line-height: 80px;
+    position: relative;
   }
 
+}
+.search-container{
+  padding-top: 130px;
+  min-height: 1330px;
+}
+.index-container{
+  padding-top: 150px;
 }
 .feed-item{
     width: 690px;
@@ -34,7 +45,7 @@
       .question {
         text,span {
           font-size: 28px;
-          font-weight: 600px;
+          font-weight: 600;
           line-height: 40px;
           text-space: 5px;
         }

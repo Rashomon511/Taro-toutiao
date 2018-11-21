@@ -1,0 +1,18 @@
+.search-head {
+  position: fixed;
+  top: 0;
+  height: 80px;
+  width: 100%;
+  background-color: #d43d3d;
+  padding: 20px;
+  z-index: 1000;
+  input{
+    width: 70%;
+    display: inline-block;
+    background-color: white;
+  }
+  .search-button{
+    display: inline-block;
+    width: 20%;
+  }
+}
